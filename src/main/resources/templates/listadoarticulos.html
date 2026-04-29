@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Artículos</title>
+    <style>
+        body  { font-family: Arial, sans-serif; margin: 40px; background-color: #f5f5f5; }
+        h1    { color: #333; }
+        table { border-collapse: collapse; width: 100%; max-width: 700px; background: white;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; }
+        th    { background-color: #2196F3; color: white; padding: 12px 16px; text-align: left; }
+        td    { padding: 10px 16px; border-bottom: 1px solid #eee; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: #e8f4fd; }
+        .btn-alta {
+            display: inline-block; margin-top: 18px;
+            padding: 10px 20px; background-color: #2196F3; color: white;
+            text-decoration: none; border-radius: 4px; font-size: 14px;
+        }
+        .btn-alta:hover { background-color: #1976D2; }
+        .btn-volver {
+            display: inline-block; margin-top: 10px; margin-left: 10px;
+            padding: 10px 20px; background-color: #9e9e9e; color: white;
+            text-decoration: none; border-radius: 4px; font-size: 14px;
+        }
+        .btn-volver:hover { background-color: #757575; }
+    </style>
+</head>
+<body>
+
+<h1>Listado de Artículos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- th:each recorre la lista de artículos pasada por el controlador -->
+        <tr th:each="articulo : ${listaArticulos}">
+            <td th:text="${articulo.id}">1</td>
+            <td th:text="${articulo.name}">Nombre artículo</td>
+            <td th:text="${articulo.descripcion}">Descripción</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Botón para ir al formulario de alta de artículo -->
+<a th:href="@{/altaarticulo}" class="btn-alta">+ Nuevo Artículo</a>
+<a th:href="@{/inicio}" class="btn-volver">← Volver al inicio</a>
+
+</body>
+</html>
