@@ -39,7 +39,7 @@ public class ControladorPrincipal {
         List<Usuario> listaUsuarios = new ArrayList<Usuario>();
         itUsuario.forEach(listaUsuarios::add);
         modelo.addAttribute("listaUsuarios", listaUsuarios);
-        return "/listadousuarios";
+        return "listadousuarios";
     }
 
     // ─── Listado de artículos ────────────────────────────────────────────────────
@@ -50,7 +50,7 @@ public class ControladorPrincipal {
         List<Articulo> listaArticulos = new ArrayList<Articulo>();
         itArticulo.forEach(listaArticulos::add);
         modelo.addAttribute("listaArticulos", listaArticulos);
-        return "/listadoArticulos";
+        return "listadoarticulos";
     }
 
     // ─── Alta de usuario ─────────────────────────────────────────────────────────
@@ -62,7 +62,7 @@ public class ControladorPrincipal {
     public String mostrarFormAltaUsuario(Model modelo) {
         // Pasamos un objeto Usuario vacío al modelo para que Thymeleaf lo vincule
         modelo.addAttribute("usuario", new Usuario());
-        return "/altausuario";
+        return "altausuario";
     }
 
     /**
@@ -83,7 +83,7 @@ public class ControladorPrincipal {
     @GetMapping(path = "/altaarticulo")
     public String mostrarFormAltaArticulo(Model modelo) {
         modelo.addAttribute("articulo", new Articulo());
-        return "/altaarticulo";
+        return "altaarticulo";
     }
 
     /**
